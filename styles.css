@@ -1,0 +1,57 @@
+.hero-image-wrapper{
+  max-width:620px;
+  width:100%;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  position:relative;
+  padding:16px;
+  border-radius:28px;
+  background:radial-gradient(circle at 18% 18%, rgba(201,162,75,0.16), transparent 32%), radial-gradient(circle at 82% 82%, rgba(255,255,255,0.08), transparent 28%);
+  box-shadow:0 34px 80px -50px rgba(20,27,51,0.35);
+  overflow:hidden;
+  animation:float-image 10s ease-in-out infinite;
+}
+.hero-image-wrapper::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:32px;
+  background:radial-gradient(circle at 25% 25%, rgba(255,255,255,0.14), transparent 20%), radial-gradient(circle at 80% 20%, rgba(201,162,75,0.12), transparent 24%);
+  pointer-events:none;
+  z-index:0;
+}
+.hero-image{
+  width:100%;
+  max-width:620px;
+  height:auto;
+  object-fit:contain;
+  border-radius:24px;
+  box-shadow:0 26px 62px -24px rgba(20,27,51,0.3);
+  position:relative;
+  z-index:1;
+}
+@keyframes float-image{
+  0%,100%{transform:translateY(0px);}
+  50%{transform:translateY(-8px);}
+}
+@media (max-width:900px){
+  .hero-image-wrapper{padding:12px;}
+}
+@media (max-width:720px){
+  .hero-image-wrapper{max-width:100%; padding:10px;}
+}
+.hero{
+  background: linear-gradient(rgba(10,14,35,0.75), rgba(10,14,35,0.75)), url("./images/astrology-hero-background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color:var(--ivory); padding:88px 0 110px; overflow:hidden;
+}
+
+/* Logo brand styling */
+.brand-logo{display:block; height:70px; width:auto; object-fit:contain; transition:transform .3s ease;}
+.brand-logo:hover, .brand-logo:focus-visible{transform:scale(1.05);}
+@media (max-width:900px){.brand-logo{height:60px;}}
+@media (max-width:600px){.brand-logo{height:50px;}}
