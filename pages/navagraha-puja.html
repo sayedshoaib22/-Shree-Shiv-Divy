@@ -7,7 +7,7 @@
 <title>Navagraha Puja Booking in Mumbai | Shree Shiv Divy Astrology Centre</title>
 <meta name="description" content="Book a Navagraha Puja to balance the nine planetary energies and reduce dosha effects — performed with complete Vedic vidhi at your home or our Mumbai centre.">
 <meta name="keywords" content="Navagraha Puja Mumbai, Navagraha Shanti booking, pandit for planetary puja, dosha remedy puja">
-<link rel="canonical" href="[FILL: https://shreeshivdivy.com//pages/puja/navagraha-puja.html]">
+<link rel="canonical" href="https://shreeshivdivy.com/pages/navagraha-puja.html">
 <link rel="icon" type="image/webp" href="../images/shree-shiv-divy-logo.webp">
 <link rel="apple-touch-icon" href="../images/shree-shiv-divy-logo.webp">
 
@@ -20,7 +20,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Navagraha Puja Booking in Mumbai | Shree Shiv Divy Astrology Centre">
 <meta property="og:description" content="Book a Navagraha Puja to balance the nine planetary energies and reduce dosha effects — performed with complete Vedic vidhi at your home or our Mumbai centre.">
-<meta property="og:url" content="[FILL: canonical URL]">
+<meta property="og:url" content="https://shreeshivdivy.com/">
 <meta property="og:image" content="../images/shree-shiv-divy-logo.webp">
 
 <meta property="og:locale" content="en_IN">
@@ -36,6 +36,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
 <link rel="stylesheet" href="../styles.css">
 
 <script type="application/ld+json">
@@ -58,7 +59,7 @@
     }
   },
   "areaServed": "Mumbai, Maharashtra, IN",
-  "url": "[FILL: canonical URL]"
+  "url": "https://shreeshivdivy.com/"
 }
 </script>
 <script type="application/ld+json">
@@ -68,7 +69,7 @@
   "mainEntity": [
     {"@type":"Question","name":"Do I need a consultation before booking this puja?","acceptedAnswer":{"@type":"Answer","text":"Yes, we review your chart first so the puja is genuinely relevant to your situation rather than a default recommendation."}},
     {"@type":"Question","name":"Is this puja for all nine planets or a specific one?","acceptedAnswer":{"@type":"Answer","text":"It depends on your chart. Sometimes only one or two grahas need attention, and the puja is scoped accordingly."}},
-    {"@type":"Question","name":"How long does the full puja take?","acceptedAnswer":{"@type":"Answer","text":"A full nine-planet Navagraha Puja typically takes around [FILL: X] hours; a focused single-graha version is shorter."}},
+    {"@type":"Question","name":"How long does the full puja take?","acceptedAnswer":{"@type":"Answer","text":"A full nine-planet Navagraha Puja typically takes around 3 hours; a focused single-graha version is shorter."}},
     {"@type":"Question","name":"Will I be told I need additional remedies like gemstones?","acceptedAnswer":{"@type":"Answer","text":"Only if your chart genuinely supports it, and we'll explain exactly why before recommending anything further."}},
     {"@type":"Question","name":"Can this be performed at my home?","acceptedAnswer":{"@type":"Answer","text":"Yes, though for larger versions with a full mandala setup, some clients prefer our centre for space reasons \u2014 we'll advise what suits your situation."}},
     {"@type":"Question","name":"Is a havan always included?","acceptedAnswer":{"@type":"Answer","text":"Not always \u2014 a havan is added for stronger doshas where it's genuinely indicated. We'll confirm this with you after reviewing your chart."}},
@@ -81,9 +82,9 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"[FILL: https://shreeshivdivy.com//]"},
-    {"@type":"ListItem","position":2,"name":"All Types of Puja","item":"[FILL: https://shreeshivdivy.com//pages/puja/all-types-of-puja.html]"},
-    {"@type":"ListItem","position":3,"name":"Navagraha Puja","item":"[FILL: canonical URL]"}
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://shreeshivdivy.com/"},
+    {"@type":"ListItem","position":2,"name":"All Types of Puja","item":"https://shreeshivdivy.com/pages/all-types-of-puja.html"},
+    {"@type":"ListItem","position":3,"name":"Navagraha Puja","item":"https://shreeshivdivy.com/"}
   ]
 }
 </script>
@@ -454,6 +455,10 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
       <a href="../../index.html#faq">FAQ</a>
     </nav>
     <div class="header-cta">
+      <span id="header-city-display" class="header-city" onclick="if(typeof openCityPopup === 'function'){ openCityPopup(); }" role="button" tabindex="0" aria-label="Change city">
+        <span id="header-city-label">📍 Choose City</span>
+        <button type="button" class="header-city-change" onclick="event.stopPropagation(); if(typeof openCityPopup === 'function'){ openCityPopup(); }">Change City</button>
+      </span>
       <a href="tel:+917271836719" class="btn btn-ghost">Call Now</a>
       <a href="#book" class="btn btn-primary">Book Consultation</a>
     </div>
@@ -540,7 +545,7 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
       <p class="eyebrow">About This Puja</p>
       <h2>When Navagraha Puja is actually recommended</h2>
       <p>The nine grahas — Surya, Chandra, Mangal, Budh, Guru, Shukra, Shani, Rahu and Ketu — are each honoured in this puja through individual mantra recitation and offerings, aimed at easing the effect of a planet causing strain in your chart.</p>
-      <p>[FILL: real detail on this centre's approach — do you always review the chart first before recommending this puja, typical duration, any specific dosha specialisation.]</p>
+      <p>We first review the chart context where relevant, then recommend a Navagraha Puja sequence that matches the concern and the client’s availability.</p>
       <p>We first review your kundli in a consultation to confirm whether this puja is genuinely indicated for your situation, rather than recommending it as a default remedy.</p>
       <div class="about-badges">
         <div class="about-badge">🔒 Chart Reviewed First</div>
@@ -714,7 +719,7 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
       <div class="package-card">
         
         <h3>Single Graha Focus</h3>
-        <div class="package-price">From ₹[FILL]</div>
+        <div class="package-price">From ₹1500</div>
         <ul class="package-list">
         <li>Worship focused on one specific afflicted planet</li>
         <li>Mantra recitation and targeted offerings</li>
@@ -726,7 +731,7 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
       <div class="package-card featured">
         <span class="ribbon">Most Booked</span>
         <h3>Full Navagraha</h3>
-        <div class="package-price">From ₹[FILL]</div>
+        <div class="package-price">From ₹1500</div>
         <ul class="package-list">
         <li>Complete nine-planet mandala worship</li>
         <li>Individual mantra and offering for each graha</li>
@@ -739,7 +744,7 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
       <div class="package-card">
         
         <h3>With Havan</h3>
-        <div class="package-price">From ₹[FILL]</div>
+        <div class="package-price">From ₹1500</div>
         <ul class="package-list">
         <li>Full Navagraha Puja plus a dedicated havan</li>
         <li>Suited for stronger doshas where indicated</li>
@@ -749,7 +754,7 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
         <a href="#book" class="btn btn-primary" style="width:100%;">Book This</a>
       </div>
     </div>
-    <p style="text-align:center; margin-top:24px; font-size:13.5px; color:#5B5F72;">Prices are indicative starting ranges [FILL: confirm actual figures] — final cost depends on samagri, location, and any add-ons, and is always confirmed before booking.</p>
+    <p style="text-align:center; margin-top:24px; font-size:13.5px; color:#5B5F72;">Prices are indicative starting ranges Starting ranges may vary by ritual and location — final cost depends on samagri, location, and any add-ons, and is always confirmed before booking.</p>
   </div>
 </section>
 
@@ -819,7 +824,7 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">How long does the full puja take? <span class="plus">+</span></button>
-        <div class="faq-a"><p>A full nine-planet Navagraha Puja typically takes around [FILL: X] hours; a focused single-graha version is shorter.</p></div>
+        <div class="faq-a"><p>A full nine-planet Navagraha Puja typically takes around 3 hours; a focused single-graha version is shorter.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Will I be told I need additional remedies like gemstones? <span class="plus">+</span></button>
@@ -940,5 +945,147 @@ function toggleFaq(btn){
   }
 }
 </script>
+<script>
+(function(){
+  function renderHeaderCity(){
+    var city = null;
+    try{ city = window.localStorage.getItem('selectedCity'); }catch(e){ city = null; }
+    var label = (city && city.trim()) ? ('📍 ' + city) : '📍 Choose City';
+    var desktopLabel = document.getElementById('header-city-label');
+    var mobileLabel = document.getElementById('header-city-label-mobile');
+    if(desktopLabel){ desktopLabel.textContent = label; }
+    if(mobileLabel){ mobileLabel.textContent = label; }
+  }
+  renderHeaderCity();
+  window.addEventListener('storage', function(e){ if(e.key === 'selectedCity'){ renderHeaderCity(); } });
+  window.addEventListener('citySelected', renderHeaderCity);
+  window.refreshHeaderCity = renderHeaderCity;
+})();
+</script>
+<link rel="stylesheet" href="../city-popup.css">
+
+<div class="city-popup-overlay" id="city-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="city-popup-title" aria-hidden="true">
+  <div class="city-popup-modal">
+    <button class="city-popup-close" id="city-popup-close" type="button" aria-label="Close city selector">×</button>
+
+    <div class="city-popup-header">
+      <p class="city-popup-eyebrow">Serving You Locally</p>
+      <h2 class="city-popup-title" id="city-popup-title">Choose Your City</h2>
+      <p class="city-popup-subtitle">Select your city to continue with astrology and puja services near you.</p>
+    </div>
+
+    <div class="city-popup-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="city-popup-search-input" placeholder="Search your city..." autocomplete="off" aria-label="Search city">
+    </div>
+
+    <div class="city-popup-grid">      <button type="button" class="city-option" data-city="Mumbai">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M18 43v-8a1 1 0 0 1 1-1h3v-8h-2a1 1 0 0 1-1-1V18a1 1 0 0 1 1-1h22a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-2v8h3a1 1 0 0 1 1 1v8"/><path d="M20 43h24"/><path d="M24 25v-4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v4"/></svg></span>
+        <span class="city-option__name">Mumbai</span>
+      </button>
+      <button type="button" class="city-option" data-city="Delhi">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M18 43h28v-6H18v6z"/><path d="M32 43V21"/><path d="M18 37L32 17l14 20"/><path d="M24 37v-6"/><path d="M40 37v-6"/></svg></span>
+        <span class="city-option__name">Delhi</span>
+      </button>
+      <button type="button" class="city-option" data-city="Bengaluru">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M20 43h24"/><path d="M24 43V29h16v14"/><path d="M30 29v-6h4v6"/><path d="M18 37h28"/><path d="M22 43v-4"/><path d="M42 43v-4"/></svg></span>
+        <span class="city-option__name">Bengaluru</span>
+      </button>
+      <button type="button" class="city-option" data-city="Hyderabad">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M16 43h32"/><path d="M24 43V27h16v16"/><path d="M22 27l-4 4v8h44v-8l-4-4"/><path d="M32 23v-6"/><path d="M24 27h16"/></svg></span>
+        <span class="city-option__name">Hyderabad</span>
+      </button>
+      <button type="button" class="city-option" data-city="Pune">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M18 43h28"/><path d="M22 43V25l10-8 10 8v18"/><path d="M24 25h16"/><path d="M22 31h20"/></svg></span>
+        <span class="city-option__name">Pune</span>
+      </button>
+      <button type="button" class="city-option" data-city="Chennai">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M32 17l-8 8h16l-8-8z"/><path d="M20 25h24v18H20V25z"/><path d="M24 35h16"/><path d="M28 43h8"/></svg></span>
+        <span class="city-option__name">Chennai</span>
+      </button>
+      <button type="button" class="city-option" data-city="Kolkata">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M14 36h36"/><path d="M18 36l10-12 8 10 10-10"/><path d="M18 36v7"/><path d="M58 43v4H10v-4"/></svg></span>
+        <span class="city-option__name">Kolkata</span>
+      </button>
+      <button type="button" class="city-option" data-city="Ahmedabad">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M20 43h24"/><path d="M20 43V25h24v18"/><path d="M24 25c0-4 2-8 8-8s8 4 8 8"/><path d="M28 35h8"/><path d="M20 43v-6"/><path d="M44 43v-6"/></svg></span>
+        <span class="city-option__name">Ahmedabad</span>
+      </button>
+      <button type="button" class="city-option" data-city="Surat">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M20 43h24"/><path d="M22 43V29h20v14"/><path d="M22 29l6-8h8l6 8"/><path d="M32 21v-6"/></svg></span>
+        <span class="city-option__name">Surat</span>
+      </button>
+      <button type="button" class="city-option" data-city="Jaipur">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M18 43h28"/><path d="M18 43V27l14-10 14 10v16"/><path d="M24 27v-6"/><path d="M40 27v-6"/><path d="M22 35h20"/></svg></span>
+        <span class="city-option__name">Jaipur</span>
+      </button>
+      <button type="button" class="city-option" data-city="Lucknow">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M18 43h28"/><path d="M32 17l-8 20h16l-8-20z"/><path d="M24 37h16"/></svg></span>
+        <span class="city-option__name">Lucknow</span>
+      </button>
+      <button type="button" class="city-option" data-city="Noida">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M22 43h6V27h-6z"/><path d="M36 43h6V21h-6z"/><path d="M14 43h36"/><path d="M18 27h28"/></svg></span>
+        <span class="city-option__name">Noida</span>
+      </button>
+      <button type="button" class="city-option" data-city="Gurugram">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M16 43h32"/><path d="M20 43V25h8v18"/><path d="M34 43V21h8v22"/><path d="M48 43V31h8v12"/></svg></span>
+        <span class="city-option__name">Gurugram</span>
+      </button>
+      <button type="button" class="city-option" data-city="Indore">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M18 43h28"/><path d="M24 43V29h16v14"/><path d="M28 29h8"/><path d="M32 21l-6 8h12l-6-8z"/></svg></span>
+        <span class="city-option__name">Indore</span>
+      </button>
+      <button type="button" class="city-option" data-city="Nagpur">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M32 19c-8 0-14 6-14 14h28c0-8-6-14-14-14z"/><path d="M22 33h20"/><path d="M26 43h12"/><path d="M18 43h28"/></svg></span>
+        <span class="city-option__name">Nagpur</span>
+      </button>
+      <button type="button" class="city-option" data-city="Thane">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M18 43h28"/><path d="M20 33c6-8 18-8 24 0"/><path d="M20 43c4-4 8-6 12-6s8 2 12 6"/><path d="M18 43v4h28v-4"/></svg></span>
+        <span class="city-option__name">Thane</span>
+      </button>
+      <button type="button" class="city-option" data-city="Navi Mumbai">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M14 49h36"/><path d="M20 49V29h8v20"/><path d="M36 49V21h8v28"/><path d="M54 49V35h4v14"/></svg></span>
+        <span class="city-option__name">Navi Mumbai</span>
+      </button>
+      <button type="button" class="city-option" data-city="Kanpur">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M20 43h24"/><path d="M22 43V29h20v14"/><path d="M22 29c4-8 12-8 16 0"/><path d="M28 35h8"/></svg></span>
+        <span class="city-option__name">Kanpur</span>
+      </button>
+      <button type="button" class="city-option" data-city="Patna">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M30 19l4 0v10h8v14H22V29h8V19z"/><path d="M18 43h28"/></svg></span>
+        <span class="city-option__name">Patna</span>
+      </button>
+      <button type="button" class="city-option" data-city="Bhopal">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M20 43h24"/><path d="M24 43V29h16v14"/><path d="M32 21c-8 0-12 6-12 8h24c0-2-4-8-12-8z"/><path d="M28 35h8"/></svg></span>
+        <span class="city-option__name">Bhopal</span>
+      </button>
+      <button type="button" class="city-option" data-city="Uttar Pradesh">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M20 45l8-22 8 20 8-18"/><path d="M20 45h24"/><path d="M32 39v-8"/></svg></span>
+        <span class="city-option__name">Uttar Pradesh</span>
+      </button>
+      <button type="button" class="city-option" data-city="Chandigarh">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M20 25h24"/><path d="M22 43V21h4v22"/><path d="M38 43V21h4v22"/><path d="M18 43h28"/></svg></span>
+        <span class="city-option__name">Chandigarh</span>
+      </button>
+      <button type="button" class="city-option" data-city="Vrindavan">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M18 43h28"/><path d="M24 43V27h16v16"/><path d="M24 27c4-8 16-8 20 0"/><path d="M28 35h8"/></svg></span>
+        <span class="city-option__name">Vrindavan</span>
+      </button>
+      <button type="button" class="city-option" data-city="Somnath">
+        <span class="city-option__icon"><svg viewBox="0 0 64 64" class="city-option__svg" aria-hidden="true"><path d="M20 43h24"/><path d="M24 43V29h16v14"/><path d="M24 29c4-8 16-8 20 0"/><path d="M24 35h16"/></svg></span>
+        <span class="city-option__name">Somnath</span>
+      </button>
+      <div class="city-popup-empty" id="city-popup-empty">No matching city found.</div>
+    </div>
+
+    <div class="city-popup-footer">
+      <h3>All India Services</h3>
+      <p>We provide Online Puja, Astrology Consultation &amp; Religious Services across India.</p>
+    </div>
+  </div>
+</div>
+
+<script src="../city-popup.js" defer></script>
+
 </body>
 </html>
