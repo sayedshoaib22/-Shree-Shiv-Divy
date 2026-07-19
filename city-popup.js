@@ -2,7 +2,8 @@
   "use strict";
 
   var STORAGE_KEY = "selectedCity";
-  var VISITED_KEY = "cityPopupSeen";
+  var COMPLETION_KEY = "cityPopupCompleted";
+  var LEGACY_COMPLETION_KEY = "cityPopupSeen";
   var overlay = document.getElementById("city-popup-overlay");
   var closeBtn = document.getElementById("city-popup-close");
   var searchInput = document.getElementById("city-popup-search-input");
@@ -10,18 +11,45 @@
   var cityButtons = Array.prototype.slice.call(document.querySelectorAll(".city-option"));
   var lastFocused = null;
 
-  function renderSelection(){
+  function getStoredValue(key){
     try {
-      var saved = window.localStorage.getItem(STORAGE_KEY);
-      cityButtons.forEach(function(btn){
-        var isSelected = btn.getAttribute("data-city") === saved;
-        btn.classList.toggle("is-selected", isSelected);
-      });
+      return window.localStorage.getItem(key);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setStoredValue(key, value){
+    try {
+      window.localStorage.setItem(key, value);
     } catch (e) {}
   }
 
-  function openPopup(){
+  function markPopupCompleted(){
+    setStoredValue(COMPLETION_KEY, "1");
+    setStoredValue(LEGACY_COMPLETION_KEY, "1");
+  }
+
+  function hasPopupCompleted(){
+    return !!(getStoredValue(COMPLETION_KEY) || getStoredValue(LEGACY_COMPLETION_KEY));
+  }
+
+  function hasSavedCity(){
+    var city = getStoredValue(STORAGE_KEY);
+    return !!(city && city.trim());
+  }
+
+  function renderSelection(){
+    var saved = getStoredValue(STORAGE_KEY);
+    cityButtons.forEach(function(btn){
+      var isSelected = btn.getAttribute("data-city") === saved;
+      btn.classList.toggle("is-selected", isSelected);
+    });
+  }
+
+  function openPopup(force){
     if (!overlay) return;
+    if (!force && (hasPopupCompleted() || hasSavedCity())) return;
     lastFocused = document.activeElement;
     overlay.classList.add("is-open");
     overlay.setAttribute("aria-hidden", "false");
@@ -31,12 +59,29 @@
     }, 120);
   }
 
+  function bindMobileCityTriggers(){
+    var triggers = Array.prototype.slice.call(document.querySelectorAll('.mobile-nav .header-city--mobile, .tablet-drawer .header-city--mobile'));
+    triggers.forEach(function(trigger){
+      trigger.addEventListener('click', function(event){
+        var target = event.target;
+        if (target && target.closest && target.closest('a, button')) return;
+        openPopup(true);
+      });
+      trigger.addEventListener('keydown', function(event){
+        if (event.key === 'Enter' || event.key === ' '){
+          event.preventDefault();
+          openPopup(true);
+        }
+      });
+    });
+  }
+
   function closePopup(){
     if (!overlay) return;
     overlay.classList.remove("is-open");
     overlay.setAttribute("aria-hidden", "true");
     document.body.classList.remove("city-popup-open");
-    try { window.localStorage.setItem(VISITED_KEY, "1"); } catch (e) {}
+    markPopupCompleted();
     if (lastFocused && typeof lastFocused.focus === "function") {
       lastFocused.focus();
     }
@@ -50,7 +95,8 @@
   function selectCity(btn){
     var city = btn.getAttribute("data-city") || "";
     if (!city) return;
-    try { window.localStorage.setItem(STORAGE_KEY, city); } catch (e) {}
+    setStoredValue(STORAGE_KEY, city);
+    markPopupCompleted();
     renderSelection();
     window.dispatchEvent(new Event("citySelected"));
     if (typeof window.refreshHeaderCity === "function") {
@@ -108,12 +154,12 @@
   }
 
   renderSelection();
-  window.openCityPopup = openPopup;
+  bindMobileCityTriggers();
+  window.openCityPopup = function(){ openPopup(true); };
 
   try {
-    var seen = window.localStorage.getItem(VISITED_KEY);
-    if (!seen) {
-      setTimeout(openPopup, 2000);
+    if (!hasPopupCompleted() && !hasSavedCity()) {
+      setTimeout(function(){ openPopup(false); }, 2000);
     }
   } catch (e) {}
 })();

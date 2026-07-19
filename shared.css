@@ -1,4 +1,3 @@
-
 :root{
   --ivory:#FAF7EF;
   --ivory-deep:#F1E7D2;
@@ -79,17 +78,43 @@ nav.main a:hover::after{transform:scaleX(1);}
 .header-city--mobile .header-city-change{color:var(--gold-light);}
 @media (max-width: 720px){
   .header-city{display:none;}
+  .mobile-nav .header-city--mobile{display:flex;}
 }
 .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 24px; border-radius:999px; font-weight:600; font-size:14.5px; white-space:nowrap; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;}
 .btn:hover{transform:translateY(-2px);}
 .btn-primary{background:linear-gradient(135deg, var(--saffron) 0%, var(--saffron-deep) 100%); color:#FFFDF8; box-shadow:0 12px 28px -10px rgba(181,98,14,0.55);}
 .btn-primary:hover{background:linear-gradient(135deg, var(--gold) 0%, var(--saffron-deep) 100%); box-shadow:0 16px 34px -10px rgba(212,175,55,0.5);}
-.btn-ghost{background:transparent; color:var(--navy); border:1.5px solid var(--line-gold);}
+.btn-ghost{    background: #e2841f;
+    color: var(--navy);
+    border: 1.5px solid var(--line-gold);}
 .btn-ghost:hover{border-color:var(--gold); background:var(--ivory-deep); color:var(--gold-deep);}
 .btn-whatsapp{background:#1F8B54; color:#fff;}
 .btn-whatsapp:hover{background:#186E42; box-shadow:0 12px 26px -10px rgba(31,139,84,0.5);}
 .menu-toggle{display:none; background:none; border:none; font-size:26px; color:var(--navy);}
-.hero{color:var(--ivory); padding:88px 0 110px; overflow:hidden; background: radial-gradient(120% 140% at 12% 15%, rgba(212,175,55,0.20), transparent 55%), radial-gradient(90% 120% at 90% 90%, rgba(226,132,31,0.14), transparent 60%), linear-gradient(150deg, var(--navy) 0%, var(--navy-deep) 100%);}
+.hero.premium-hero,
+.page-hero.premium-hero,
+.inner-banner.premium-hero{
+  position:relative;
+  overflow:hidden;
+  background: linear-gradient(rgba(8,12,24,.82), rgba(8,12,24,.82)),
+  url("images/astrology-hero-about-image.jpg") center/cover no-repeat;
+  background-color:var(--navy-deep);
+  color:var(--ivory);
+}
+.hero.premium-hero::before,
+.page-hero.premium-hero::before,
+.inner-banner.premium-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top right, rgba(255,185,0,.15), transparent 45%);
+  pointer-events:none;
+}
+.hero.premium-hero > *,
+.page-hero.premium-hero > *,
+.inner-banner.premium-hero > *{position:relative; z-index:2;}
+.hero{color:var(--ivory); padding:88px 0 110px; overflow:hidden; position:relative; background-color:var(--navy-deep);}
 .hero .container{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
 .hero-copy .eyebrow{color:var(--gold-light);}
 .hero-copy .eyebrow::before{background:var(--gold-light);}
@@ -101,11 +126,76 @@ nav.main a:hover::after{transform:scaleX(1);}
 .trust-stat{display:flex; align-items:baseline; gap:8px;}
 .trust-stat b{font-family:var(--font-display); font-size:26px; color:var(--gold-light); font-weight:600;}
 .trust-stat span{font-size:13px; color:#C9C1A8;}
-.hero-visual{position:relative; display:flex; align-items:center; justify-content:center;}
-.chart-wrap{position:relative; width:100%; max-width:420px; aspect-ratio:1;}
+.hero-visual{position:static; display:flex; align-items:center; justify-content:center;}
+.chart-wrap{position:relative; width:100%; max-width:420px; aspect-ratio:1; isolation:isolate;}
 .chart-wrap svg{width:100%; height:100%;}
-.hero-badge{position:absolute; bottom:-6px; left:-6px; background:var(--paper); color:var(--navy); border-radius:14px; padding:12px 18px; box-shadow:var(--shadow-gold); display:flex; gap:10px; align-items:center; font-size:13.5px; font-weight:600; border:1px solid var(--line-gold);}
-.hero-badge .dot{width:8px; height:8px; border-radius:50%; background:var(--success); box-shadow:0 0 0 4px rgba(31,139,84,0.18);}
+/* Maa Hinglaj Devi — sacred medallion, floating in the empty
+   upper-right corner of the HERO SECTION, clear of the hero image */
+/* Maa Hinglaj Devi */
+.hero-floating-circle{
+    position:absolute;
+    top:60px;
+    left:20px;     /* NOT negative */
+    width:90px;
+    height:90px;
+}
+/* Faint mandala / sunburst glow behind the medallion — barely visible, blends into the background */
+.hero-floating-circle::before{
+  content:"";
+  position:absolute;
+  top:50%; left:50%;
+  width:260%; height:260%;
+  transform:translate(-50%,-50%);
+  background:
+    repeating-conic-gradient(from 0deg, rgba(201,162,75,0.13) 0deg 3deg, transparent 3deg 15deg),
+    radial-gradient(circle, rgba(201,162,75,0.10) 0%, transparent 68%);
+  border-radius:50%;
+  z-index:-1;
+}
+.hero-floating-circle img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #C9A24B,
+    0 6px 16px -6px rgba(16,27,54,0.32),
+    0 0 14px 1px rgba(201,162,75,0.16);
+  animation:hero-glow-breathe 6s ease-in-out infinite;
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+.hero-floating-circle:hover img{
+  transform:scale(1.03);
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #C9A24B,
+    0 8px 20px -6px rgba(16,27,54,0.38),
+    0 0 20px 3px rgba(201,162,75,0.26);
+}
+.hero-badge{position:absolute; bottom:-6px; left:-6px; background:var(--paper); color:var(--navy); border-radius:14px; padding:12px 18px; box-shadow:var(--shadow-gold); display:flex; gap:10px; align-items:center; font-size:13.5px; font-weight:600; border:1px solid var(--line-gold); z-index:4;}
+.hero-badge .dot{width:8px; height:8px; border-radius:50%; background:var(--success); box-shadow:0 0 0 4px rgba(31,139,84,0.18);} 
+@keyframes hero-float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-2px);}}
+@keyframes hero-glow-breathe{
+  0%,100%{
+    box-shadow:
+      0 0 0 2px #fff,
+      0 0 0 4px #C9A24B,
+      0 6px 16px -6px rgba(16,27,54,0.32),
+      0 0 14px 1px rgba(201,162,75,0.16);
+  }
+  50%{
+    box-shadow:
+      0 0 0 2px #fff,
+      0 0 0 4px #C9A24B,
+      0 6px 16px -6px rgba(16,27,54,0.32),
+      0 0 20px 3px rgba(201,162,75,0.28);
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-floating-circle, .hero-floating-circle img{animation:none;}
+}
 .trust-strip{background:var(--paper); border-bottom:1px solid var(--line);}
 .trust-strip .container{display:grid; grid-template-columns:repeat(4,1fr); gap:0; padding:0;}
 .trust-item{padding:26px 20px; text-align:center; border-right:1px solid var(--line);}
@@ -155,11 +245,17 @@ nav.main a:hover::after{transform:scaleX(1);}
 .house-badge{width:52px; height:52px; border-radius:50%; background:var(--paper); border:1.5px solid var(--gold); display:flex; align-items:center; justify-content:center; margin:0 auto 18px; position:relative; z-index:2; font-family:var(--font-display); font-weight:600; color:var(--gold-deep); font-size:18px; box-shadow:var(--shadow-gold);}
 .process-step h3{font-size:17.5px; margin-bottom:8px;}
 .process-step p{font-size:13.5px; color:var(--muted);}
-.testi-track{display:flex; gap:22px; overflow-x:auto; padding-bottom:12px; scroll-snap-type:x mandatory;}
+.testi-track{position:relative; overflow:hidden; padding-bottom:12px;}
+.testi-track-inner{display:flex; width:max-content; gap:22px; will-change:transform; animation:testi-scroll var(--testi-speed, 32s) linear infinite;}
+.testi-track.is-paused .testi-track-inner{animation-play-state:paused;}
+.testi-track-group{display:flex; gap:22px; flex:0 0 auto;}
 .testi-track::-webkit-scrollbar{height:6px;}
 .testi-track::-webkit-scrollbar-thumb{background:var(--line-gold); border-radius:6px;}
-.testi-card{scroll-snap-align:start; flex:0 0 340px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow);}
+.testi-card{scroll-snap-align:start; flex:0 0 min(88vw, 340px); background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow);}
 .testi-top{display:flex; gap:12px; align-items:center; margin-bottom:14px;}
+@keyframes testi-scroll{from{transform:translateX(0);} to{transform:translateX(calc(-1 * var(--track-offset, 0px)));}}
+@media (min-width:721px){.testi-card{flex:0 0 340px;}}
+@media (prefers-reduced-motion: reduce){.testi-track-inner{animation:none; transform:none;}}
 .avatar{width:44px; height:44px; border-radius:50%; background:var(--ivory-deep); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:600; color:var(--gold-deep);}
 .testi-name{font-weight:600; font-size:14.5px; color:var(--navy);}
 .testi-date{font-size:12px; color:#9A9382;}
@@ -232,6 +328,26 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
 @media (max-width: 980px){
   .hero .container{grid-template-columns:1fr; gap:40px;}
   .hero-visual{order:-1; max-width:280px; margin:0 auto;}
+ /* ===========================
+   Tablet (721px - 980px)
+=========================== */
+@media (max-width:980px){
+
+    .hero-floating-circle{
+        top:40px;
+        left:15px;
+        right:auto;
+        width:72px;
+        height:72px;
+        z-index:20;
+    }
+
+    .hero-floating-circle::before{
+        width:220%;
+        height:220%;
+    }
+
+}
   .why-grid{grid-template-columns:1fr 1fr;}
   .process-row{grid-template-columns:repeat(2,1fr); row-gap:36px;}
   .process-row::before{display:none;}
@@ -243,8 +359,43 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
 }
 @media (max-width: 720px){
   nav.main, .header-cta .btn-ghost{display:none;}
+  .header-cta .btn-primary{display:none;}
   .menu-toggle{display:block;}
   .mobile-bar{display:flex;}
+ /* ==========================
+   Mobile Hero Layout
+========================== */
+@media (max-width:720px){
+
+    .hero .container{
+        display:flex;
+        flex-direction:column;
+        gap:24px;
+    }
+
+    .hero-copy{
+        order:1;
+    }
+
+    .hero-visual{
+        order:2;
+        max-width:100%;
+        margin:0 auto;
+    }
+
+    .hero-floating-circle{
+        top:8px;          /* moved higher */
+        left:15px;
+        width:58px;
+        height:58px;
+        z-index:100;
+    }continue
+
+    .hero{
+        padding-top:80px;
+    }
+
+}
   .float-wa{display:none;}
   .section{padding:64px 0;}
   .why-grid{grid-template-columns:1fr;}
@@ -261,4 +412,101 @@ footer.site{background:var(--navy-deep); color:#B9B2A0; padding:64px 0 0;}
 .mobile-nav-top button{color:#F4EFE1; font-size:28px;}
 .mobile-nav a{color:#F4EFE1; font-family:var(--font-display); font-size:26px; padding:16px 0; border-bottom:1px solid rgba(212,175,55,0.16);}
 .mobile-nav a:hover{color:var(--gold-light);}
-.mobile-nav .btn{margin-top:24px;}
+.mobile-nav .mobile-nav-actions{display:flex; flex-direction:column; gap:12px; margin-top:auto; padding-top:16px;}
+.mobile-nav .mobile-nav-actions .btn{margin-top:0; width:100%; justify-content:center;}
+
+/* ============================================================
+   TABLET NAVIGATION (768px – 1199px)
+   Desktop nav (nav.main) and the mobile full-screen drawer
+   (.mobile-nav) are untouched. This block only adds a dedicated
+   tablet header state + slide-in drawer for the gap between them.
+   The range starts at 721px so it seamlessly picks up right where
+   the existing mobile breakpoint (max-width:720px) leaves off —
+   no dead zone, no change to mobile's own breakpoint.
+============================================================ */
+.tablet-menu-toggle{
+  display:none;
+  position:relative;
+  width:44px; height:44px;
+  align-items:center; justify-content:center;
+  flex-direction:column; gap:5px;
+  background:transparent; border:1.5px solid var(--line-gold); border-radius:12px;
+  flex:none;
+}
+.tablet-menu-toggle:hover{border-color:var(--gold); background:var(--ivory-deep);}
+.tablet-menu-toggle__bar{
+  display:block; width:20px; height:2px; border-radius:2px;
+  background:var(--navy);
+  transition:transform .25s ease, opacity .2s ease;
+}
+.tablet-menu-toggle.open .tablet-menu-toggle__bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.tablet-menu-toggle.open .tablet-menu-toggle__bar:nth-child(2){opacity:0;}
+.tablet-menu-toggle.open .tablet-menu-toggle__bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.tablet-drawer-overlay{
+  position:fixed; inset:0; z-index:290;
+  background:rgba(0,0,0,.45);
+  opacity:0; transition:opacity .3s ease;
+}
+.tablet-drawer-overlay.open{opacity:1;}
+
+.tablet-drawer{
+  position:fixed; top:0; right:0; z-index:295;
+  width:320px; max-width:85vw; height:100%;
+  background:var(--paper);
+  box-shadow:-18px 0 48px -18px rgba(16,27,54,0.35);
+  display:flex; flex-direction:column;
+  padding:24px; overflow-y:auto;
+  transform:translateX(100%);
+  transition:transform .3s ease;
+}
+.tablet-drawer.open{transform:translateX(0);}
+.tablet-drawer-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:28px;}
+.tablet-drawer-top .brand{pointer-events:none;}
+.tablet-drawer-close{font-size:26px; line-height:1; color:var(--navy); background:none; border:none;}
+.tablet-drawer-nav{display:flex; flex-direction:column; gap:2px; margin-bottom:22px;}
+.tablet-drawer-nav a{color:var(--charcoal); font-family:var(--font-display); font-size:19px; padding:14px 4px; border-bottom:1px solid var(--line); transition:color .2s ease;}
+.tablet-drawer-nav a:hover{color:var(--gold-deep);}
+.tablet-drawer .header-city{width:100%; justify-content:space-between; margin-bottom:20px;}
+.tablet-drawer-actions{display:flex; flex-direction:column; gap:12px; margin-top:auto; padding-top:12px;}
+.tablet-drawer-actions .btn{width:100%;}
+
+body.tnav-lock{overflow:hidden;}
+
+@media (min-width:721px) and (max-width:1199px){
+  nav.main{display:none;}
+  .header-cta .btn-ghost, .header-cta .header-city{display:none;}
+  .tablet-menu-toggle{display:flex;}
+}
+@media (max-width:720px), (min-width:1200px){
+  .tablet-drawer, .tablet-drawer-overlay{display:none !important;}
+}
+/* Disable text selection and long-press context globally on touch devices
+   Keep form controls and contenteditable areas selectable. */
+html, body, :root, *{
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-user-drag: none !important;
+}
+
+/* Allow selection and normal touch behavior for form controls and editable regions */
+input, textarea, select, [contenteditable="true"],
+input *, textarea *, select *, [contenteditable="true"] *{
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+  -webkit-tap-highlight-color: inherit !important;
+  -webkit-user-drag: auto !important;
+}
+
+/* Ensure text selection pseudo-element behavior remains normal for editable fields */
+input::selection, textarea::selection, [contenteditable="true"]::selection{
+  background: Highlight;
+  color: HighlightText;
+}
